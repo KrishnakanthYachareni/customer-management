@@ -6,7 +6,14 @@ import {AppComponent} from './app.component';
 import {NavbarComponent} from './layout/navbar/navbar.component';
 import {CustomersComponent} from './customers/customers.component';
 import {AboutComponent} from './about/about.component';
-import { OrdersComponent } from './orders/orders.component';
+import {OrdersComponent} from './orders/orders.component';
+import {DataService} from './services/data.service';
+import {LoggerService} from './services/logger.service';
+import {CustomersCardComponent} from './customers/customers-card/customers-card.component';
+import {TrackByService} from './services/trackby.service';
+import {CapitalizePipe} from './shared/pipes/capitalize.pipe';
+import {TrimPipe} from './shared/pipes/trim.pipe';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,13 +21,17 @@ import { OrdersComponent } from './orders/orders.component';
     NavbarComponent,
     CustomersComponent,
     AboutComponent,
-    OrdersComponent
+    OrdersComponent,
+    CustomersCardComponent,
+    CapitalizePipe,
+    TrimPipe
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DataService, LoggerService, TrackByService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

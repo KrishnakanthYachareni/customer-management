@@ -1,1 +1,44 @@
-<p>customers works!</p>
+<div class="customers view indent">
+  <div class="container">
+    <header>
+      <h3>
+        <span class="glyphicon glyphicon-user"></span>
+        {{ title }}
+      </h3>
+    </header>
+    <br/>
+    <div class="row">
+      <div class="col-md-10">
+        <div class="form-row">
+          <ul class="nav navbar-nav">
+            <li class="toolbar-item">
+              <label>First Name:</label>
+              <input type="text" name="firstName" required/>&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+            <li class="toolbar-item">
+              <label>Last Name:</label>
+              <input type="text" name="firstName" required/>&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+            <li class="toolbar-item">
+              <label>City:</label>
+              <input type="text" name="firstName" required/>&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+            <li class="toolbar-item">
+              <button [routerLink]="'customers/edit'" class="card-header"> Add Customer</button>
+            </li>
+            <!--   <li class="toolbar-item">
+                 <a routerLink="/customers/0/edit">
+                   <span class="glyphicon glyphicon-plus"></span> New Customer
+                 </a>
+               </li>-->
+          </ul>
+        </div>
+      </div>
+      <br><br>
+    </div>
+    <app-customers-card
+      [customers]="filteredCustomers"
+      [hidden]="displayMode !== displayModeEnum.Card">
+    </app-customers-card>
+  </div>
+</div>
