@@ -1,12 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {NavbarComponent} from './layout/navbar/navbar.component';
+import {CustomersComponent} from './customers/customers/customers.component';
+import {AboutComponent} from './about/about/about.component';
+import { OrdersComponent } from './orders/orders/orders.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    CustomersComponent,
+    AboutComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -15,4 +23,5 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
