@@ -13,27 +13,21 @@ export class CustomersComponent implements OnInit {
   filterText: string;
   customers: ICustomer[] = [];
   filteredCustomers: ICustomer[] = [];
-  displayMode: DisplayModeEnum;
-  displayModeEnum = DisplayModeEnum;
   totalRecords = 0;
   pageSize = 10;
 
   constructor(private dataService: DataService, private logger: LoggerService) {
     this.title = 'Customers';
     this.filterText = 'Filter Customers:';
-    this.displayMode = DisplayModeEnum.Card;
   }
 
   ngOnInit(): void {
-    this.getCustomersPage(1);
-  }
-
-  changeDisplayMode(mode: DisplayModeEnum): void {
-    this.displayMode = mode;
+    // this.getCustomersPage(1);
+    this.getCustomersAllCustomers();
   }
 
   pageChanged(page: number): void {
-    this.getCustomersPage(page);
+    // this.getCustomersPage(page);
   }
 
   getCustomersPage(page: number): void {
@@ -46,6 +40,15 @@ export class CustomersComponent implements OnInit {
         () => this.logger.log('getCustomersPage() retrieved customers for page: ' + page));
   }
 
+  // No paging
+  getCustomersAllCustomers(): void {
+    this.dataService.getCustomers()
+      .subscribe(re => {
+          this.customers = this.filteredCustomers = re;
+        }, (err: any) => this.logger.log(err),
+        () => this.logger.log('getCustomers() retrieved customers'));
+  }
+
   filterChanged(data: string): void {
     if (data && this.customers) {
       data = data.toUpperCase();
@@ -55,11 +58,4 @@ export class CustomersComponent implements OnInit {
       this.filteredCustomers = this.customers;
     }
   }
-
-}
-
-enum DisplayModeEnum {
-  Card = 0,
-  Grid = 1,
-  Map = 2
 }

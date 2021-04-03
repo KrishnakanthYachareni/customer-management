@@ -320,5 +320,127 @@
     },
     "latitude": 40.725037,
     "longitude": -74.004903
+  },
+  {
+    "id": 15,
+    "firstName": "Pinal",
+    "lastName": "Dave",
+    "gender": "male",
+    "address": "23566 Directive Pl.",
+    "city": "White Plains",
+    "state": {
+      "abbreviation": "NY",
+      "name": "New York"
+    },
+    "latitude": 41.028726,
+    "longitude": -73.758261
+  },
+  {
+    "id": 16,
+    "firstName": "Robin",
+    "lastName": "Cleark",
+    "gender": "female",
+    "address": "35632 Richmond Circle Apt B",
+    "city": "Las Vegas",
+    "state": {
+      "abbreviation": "NV",
+      "name": "Nevada"
+    },
+    "latitude": 36.091824,
+    "longitude": -115.174247
+  },
+  {
+    "id": 17,
+    "firstName": "Fred",
+    "lastName": "Roberts",
+    "gender": "male",
+    "address": "12 Ocean View St.",
+    "city": "Houston",
+    "state": {
+      "abbreviation": "TX",
+      "name": "Texas"
+    },
+    "latitude": 29.750163,
+    "longitude": -95.362769
+  },
+  {
+    "id": 18,
+    "firstName": "Robyn",
+    "lastName": "Flores",
+    "gender": "female",
+    "address": "23423 Adams St.",
+    "city": "Seattle",
+    "state": {
+      "abbreviation": "WA",
+      "name": "Washington"
+    },
+    "latitude": 47.596,
+    "longitude": -122.331
+  },
+  {
+    "id": 19,
+    "firstName": "Elaine",
+    "lastName": "Jones",
+    "gender": "female",
+    "address": "98756 Center St.",
+    "city": "Barcelona",
+    "state": {
+      "abbreviation": "CAT",
+      "name": "Catalonia"
+    },
+    "latitude": 41.386444,
+    "longitude": 2.111988
+  },
+  {
+    "id": 20,
+    "firstName": "Lilija",
+    "lastName": "Arnarson",
+    "gender": "female",
+    "address": "23423 Adams St.",
+    "city": "Reykjavik",
+    "state": {
+      "abbreviation": "IS",
+      "name": "Iceland"
+    },
+    "latitude": 64.120278,
+    "longitude": -21.830471
+  },
+  {
+    "id": 21,
+    "firstName": "Laurent",
+    "lastName": "Bugnion",
+    "gender": "male",
+    "address": "9874 Lake Blvd.",
+    "city": "Zurich",
+    "state": {
+      "abbreviation": "COZ",
+      "name": "Canton of Zurick"
+    },
+    "orders": [
+      {
+        "productName": "Baseball",
+        "itemCost": 9.99
+      },
+      {
+        "productName": "Bat",
+        "itemCost": 19.99
+      }
+    ],
+    "latitude": 47.341337,
+    "longitude": 8.582503
+  },
+  {
+    "id": 22,
+    "firstName": "Gabriel",
+    "lastName": "Flores",
+    "gender": "male",
+    "address": "2543 Cassiano",
+    "city": "Rio de Janeiro",
+    "state": {
+      "abbreviation": "WA",
+      "name": "Rio de Janeiro"
+    },
+    "latitude": -22.919369,
+    "longitude": -43.181836
   }
 ]

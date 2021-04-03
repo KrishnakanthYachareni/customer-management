@@ -14,6 +14,9 @@ import {TrackByService} from './services/trackby.service';
 import {CapitalizePipe} from './shared/pipes/capitalize.pipe';
 import {TrimPipe} from './shared/pipes/trim.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import {CustomerEditComponent} from './customers/customer-edit/customer-edit.component';
+import {FormsModule} from '@angular/forms';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,12 +27,15 @@ import {HttpClientModule} from '@angular/common/http';
     OrdersComponent,
     CustomersCardComponent,
     CapitalizePipe,
-    TrimPipe
+    TrimPipe,
+    CustomerEditComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [DataService, LoggerService, TrackByService],
   bootstrap: [AppComponent]
