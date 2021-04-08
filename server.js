@@ -134,7 +134,7 @@ app.all('/*', function (req, res) {
 
 
 // Running Express Js Server
-app.listen(3000);
+app.listen(process.env.PORT || 5000);
 app.start
 console.log('NodeJs Server listening on port 3000.');
 
