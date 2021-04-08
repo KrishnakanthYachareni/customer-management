@@ -140,9 +140,9 @@ console.log('NodeJs Server listening on port 3000.');
 
 //Development mode on local machine.
 // http://localhost:3000
-var opn = require('opn');
+/*var opn = require('opn');
 opn('https://customers-managements.herokuapp.com:3000').then(() => {
   console.log('Browser has been closed.');
-});
+});*/
 
 
