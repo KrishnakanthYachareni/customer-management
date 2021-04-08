@@ -2,11 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
+Deployed at: https://customer-mm.herokuapp.com/customers
+
 ## Development server
 
 1. `ng build -- watch` and `node server.js` -> To run the Express Js server for back end api.
 2. or `npm start`
-3. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
+3. Navigate to `http://localhost:5000/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
