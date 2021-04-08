@@ -135,11 +135,13 @@ app.all('/*', function (req, res) {
 
 // Running Express Js Server
 app.listen(3000);
+app.start
 console.log('NodeJs Server listening on port 3000.');
-var opn = require('opn');
-//http://localhost:3000 --> for dev
-opn('https://customer-manager-home.herokuapp.com').then(() => {
+
+//Development mode on local machine.
+/*var opn = require('opn');
+opn('http://localhost:3000').then(() => {
   console.log('Browser has been closed.');
-});
+});*/
 
 
