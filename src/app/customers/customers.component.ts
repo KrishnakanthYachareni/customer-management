@@ -26,6 +26,7 @@ export class CustomersComponent implements OnInit {
     this.getCustomersAllCustomers();
   }
 
+  // TODO: Implement paging
   pageChanged(page: number): void {
     // this.getCustomersPage(page);
   }
