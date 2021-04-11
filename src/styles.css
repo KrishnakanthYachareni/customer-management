@@ -35,7 +35,7 @@ th {
 }
 
 .orders-table {
-  width: 50%;
+  width: 70%;
 }
 
 .orders-table td {
@@ -173,6 +173,15 @@ a:hover, a:focus {
   border-top: 6px solid rgba(0, 174, 239, .8);
   border-radius: 100%;
 }
+.table-total {
+  background-color: #e6faff;
+}
+
+.table-header {
+  background-color: #008ae6;
+  color: white;
+}
+
 
 @-webkit-keyframes rotation {
   from {

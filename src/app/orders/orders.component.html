@@ -1,1 +1,49 @@
-<p>orders works!</p>
+<div class="customers view indent">
+  <div class="container">
+    <header>
+      <h3>
+        <span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;All Customer Orders
+      </h3>
+    </header>
+    <br/>
+
+    <div class="container">
+      <div *ngIf="customers">
+
+        <div class="row" *ngFor="let customer of customers;trackBy:trackbyService.customer">
+          <h4 style="color:#3399ff;">
+            <strong>{{ customer.firstName | capitalize }} {{ customer.lastName | capitalize }}</strong></h4>
+          <br/>
+          <table *ngIf=" customer.orders && customer.orders.length" class="table table-bordered table-striped">
+            <thead>
+            <tr class="table-header">
+              <th scope="col">Product</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let order of customer.orders;trackBy:trackbyService.order">
+              <td>{{ order.productName }}</td>
+              <td>1</td>
+              <td>{{order.itemCost | currency:'USD':'symbol'}}</td>
+              <td>{{order.itemCost | currency:'USD':'symbol'}}</td>
+            </tr>
+            <tr>
+              <td colspan="3" class="table-total"></td>
+              <td class="table-total"><strong>{{ customer.orderTotal | currency:'USD':'symbol' }}</strong></td>
+            </tr>
+            </tbody>
+          </table>
+          <div *ngIf="!customer.orders || !customer.orders.length">
+            No orders found
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!customers">
+        No customers found
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<h3><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;<strong>Customer Orders</strong></h3>
+<div class="container">
+  <div class="row" *ngIf="customer && customer.orders">
+    <h4><strong>Orders for {{ customer.firstName | capitalize }} {{ customer.lastName | capitalize }}</strong></h4>
+    <h5>{{customer.address}}</h5>
+    <h5>{{customer.state.name}}</h5>
+    <br/>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr class="table-header">
+        <th scope="col">Product</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let order of customer.orders;trackBy:ordersTrackBy">
+        <td>{{ order.productName }}</td>
+        <td>1</td>
+        <td>{{order.itemCost | currency:'USD':'symbol'}}</td>
+        <td>{{order.itemCost | currency:'USD':'symbol'}}</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="table-total"></td>
+        <td class="table-total"><strong>{{ customer.orderTotal | currency:'USD':'symbol' }}</strong></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="customer && !customer.orders" class="row">
+    No orders found
+  </div>
+  <div *ngIf="!customer" class="row">
+    No customer found
+  </div>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+  <a routerLink="/customers">View all Customers</a>
+</div>

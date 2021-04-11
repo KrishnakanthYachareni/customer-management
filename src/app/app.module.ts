@@ -17,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {CustomerEditComponent} from './customers/customer-edit/customer-edit.component';
 import {FormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { CustomerOrdersComponent } from './customers/customer-orders/customer-orders.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     CustomersCardComponent,
     CapitalizePipe,
     TrimPipe,
-    CustomerEditComponent
+    CustomerEditComponent,
+    CustomerOrdersComponent
   ],
   imports: [
     BrowserModule,
