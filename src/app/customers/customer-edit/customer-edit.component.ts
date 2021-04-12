@@ -27,7 +27,7 @@ export class CustomerEditComponent implements OnInit {
       }
     };
   states: IState[] = [];
-  errorMessage = '';
+  errorMessage: any;
   deleteMessageEnabled = false;
   operationText = 'Insert';
   // @ts-ignore
@@ -39,17 +39,6 @@ export class CustomerEditComponent implements OnInit {
     this.showForm = !this.showForm;
   }
 
-  handleAdd(formInfo: any): void {
-    const tempItem: object = {
-      petName: formInfo.petName,
-      ownerName: formInfo.ownerName,
-      aptDate: formInfo.aptDate + ' ' + formInfo.aptTime,
-      aptNotes: formInfo.aptNotes
-    };
-    this.addEvt.emit(tempItem);
-    this.showForm = !this.showForm;
-  }
-
   constructor(private dataService: DataService, private logger: LoggerService,
               private router: Router,
               private route: ActivatedRoute) {
@@ -57,6 +46,17 @@ export class CustomerEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Subscribe to params so if it changes we pick it up. Don't technically need that here
+    // since param won't be changing while component is alive.
+    // @ts-ignore
+    this.route.parent.params.subscribe(() => {
+      const id: number = Number(this.route.snapshot.paramMap.get('id'));
+      if (id !== 0) {
+        this.operationText = 'Update';
+        this.showForm = !this.showForm;
+        this.getCustomer(id);
+      }
+    });
     this.dataService.getStates().subscribe((states: IState[]) => this.states = states);
   }
 
@@ -74,6 +74,7 @@ export class CustomerEditComponent implements OnInit {
             if (insertedCustomer) {
               this.customerForm.form.markAsPristine();
               this.router.navigate(['/customers']);
+              this.errorMessage = 'Successfully Added the customer';
             } else {
               this.errorMessage = 'Unable to insert customer';
             }

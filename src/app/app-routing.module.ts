@@ -4,11 +4,13 @@ import {CustomersComponent} from './customers/customers.component';
 import {OrdersComponent} from './orders/orders.component';
 import {AboutComponent} from './about/about.component';
 import {CustomerOrdersComponent} from './customers/customer-orders/customer-orders.component';
+import {CustomerEditComponent} from './customers/customer-edit/customer-edit.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/customers'},
   {path: 'customers', component: CustomersComponent},
   {path: 'customers/:id/orders', component: CustomerOrdersComponent},
+  {path: 'customers/:id/edit', component: CustomerEditComponent},
   {path: 'orders', component: OrdersComponent},
   {path: 'about', component: AboutComponent},
   {path: '**', pathMatch: 'full', redirectTo: '/customers'}
