@@ -4,6 +4,7 @@ import {ICustomer, IState} from '../../shared/interfaces';
 import {DataService} from '../../services/data.service';
 import {LoggerService} from '../../services/logger.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-customer-edit',
@@ -27,9 +28,9 @@ export class CustomerEditComponent implements OnInit {
       }
     };
   states: IState[] = [];
-  errorMessage: any;
   deleteMessageEnabled = false;
   operationText = 'Insert';
+
   // @ts-ignore
   @ViewChild('customerForm') customerForm: NgForm;
 
@@ -41,7 +42,8 @@ export class CustomerEditComponent implements OnInit {
 
   constructor(private dataService: DataService, private logger: LoggerService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private toastr: ToastrService) {
     this.showForm = true;
   }
 
@@ -68,26 +70,25 @@ export class CustomerEditComponent implements OnInit {
 
   submit(): void {
     if (this.customer.id === 0) {
-      console.log('inside submit if');
       this.dataService.insertCustomer(this.customer)
         .subscribe((insertedCustomer: ICustomer) => {
             if (insertedCustomer) {
-              this.customerForm.form.markAsPristine();
               this.router.navigate(['/customers']);
-              this.errorMessage = 'Successfully Added the customer';
+              this.toastr.success('Successfully Added the customer');
             } else {
-              this.errorMessage = 'Unable to insert customer';
+              this.toastr.error('Unable to Add the customer');
             }
+            this.customerForm.form.reset();
           },
           (err: any) => this.logger.log(err));
     } else {
-      console.log('inside submit else');
       this.dataService.updateCustomer(this.customer)
         .subscribe((status: boolean) => {
             if (status) {
               this.customerForm.form.markAsPristine();
+              this.toastr.success('Successfully updated the customer');
             } else {
-              this.errorMessage = 'Unable to update customer';
+              this.toastr.error('Unable to Update the customer');
             }
           },
           (err: any) => this.logger.log(err));
@@ -106,7 +107,7 @@ export class CustomerEditComponent implements OnInit {
           if (status) {
             this.router.navigate(['/customers']);
           } else {
-            this.errorMessage = 'Unable to delete customer';
+            this.toastr.error('Unable to Delete the customer');
           }
         },
         (err) => this.logger.log(err));

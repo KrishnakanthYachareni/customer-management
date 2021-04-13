@@ -17,7 +17,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {CustomerEditComponent} from './customers/customer-edit/customer-edit.component';
 import {FormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { CustomerOrdersComponent } from './customers/customer-orders/customer-orders.component';
+import {CustomerOrdersComponent} from './customers/customer-orders/customer-orders.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -34,10 +36,12 @@ import { CustomerOrdersComponent } from './customers/customer-orders/customer-or
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ToastrModule.forRoot()
   ],
   providers: [DataService, LoggerService, TrackByService],
   bootstrap: [AppComponent]
